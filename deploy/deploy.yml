@@ -1,0 +1,12 @@
+---
+- name: Deploy website
+  hosts: web
+  become: false
+
+  tasks:
+
+    - name: Copy website to Apache
+      ansible.builtin.copy:
+        src: ../index.html
+        dest: /var/www/html/index.html
+        mode: '0644'
